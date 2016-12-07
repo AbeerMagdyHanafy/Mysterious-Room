@@ -4,7 +4,7 @@ using System.Collections;
 public class Finger : MonoBehaviour {
 
     public GameObject hand;
-    int countUp=0, countDown=0;
+    int  countUp=0, countDown=0;
 
     // Use this for initialization
     void Start () {
@@ -17,13 +17,13 @@ public class Finger : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Vector3 position = this.transform.position;
-            if ((countDown <= 1) && (countDown >= 0) )
+            if ((countDown <= 2) && (countDown >= 0) )
             {
                 position.y += 0.1f;
                 countDown++;
                 //this.transform.position = position;
                 if ((countUp != 0))
-                countUp--;
+                { countUp--; }
                 this.transform.position = position;
             }
             
@@ -32,14 +32,14 @@ public class Finger : MonoBehaviour {
         {
             Vector3 position = this.transform.position;
 
-            if ((countUp <= 1) && (countUp >= 0) )
+            if ((countUp <= 2) && (countUp >= 0) )
             {
                 position.y -= 0.1f;
                
                 countUp++;
                // this.transform.position = position;
                 if ((countDown != 0))
-                countDown--;
+                { countDown--; }
                 this.transform.position = position;
             }
            

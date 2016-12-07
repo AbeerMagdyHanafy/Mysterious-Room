@@ -19,20 +19,22 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(finger.transform.position, book.transform.position);
+        float dist = Vector3.Distance(hand.transform.position, book.transform.position);
         Vector3 temp = Input.mousePosition;
         
-        if ((dist >= -1.5f) && (dist <= 1.5f))
+        if ((dist >= -2) && (dist <= 2))
         {
             Debug.Log("no" + dist);
-           // temp.z = 1f;
-            //this.transform.position = Camera.main.ScreenToWorldPoint(temp);
+             temp.z = 10f;
+            book.transform.position = Camera.main.ScreenToWorldPoint(temp);
+            hand.transform.position = Camera.main.ScreenToWorldPoint(temp);
+            finger.transform.position = Camera.main.ScreenToWorldPoint(temp);
         }
         else
         {
             Debug.Log("yes" + dist);
             temp.z = 10f;// Set this to be the distance you want the object to be placed in front of the camera.    
-            this.transform.position = Camera.main.ScreenToWorldPoint(temp);
+            hand.transform.position = Camera.main.ScreenToWorldPoint(temp);
         }
 
     }
